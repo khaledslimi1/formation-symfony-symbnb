@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Ad;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -26,7 +27,8 @@ class AdType extends AbstractType
                 'label' => 'URL',
                 'attr' => [
                     'placeholder' => 'Adresse Web (automatique)!'
-                ]
+                ],
+                'required' => false
             ])
             ->add('introduction',  TextType::class, [
                 'label' => 'Introduction',
@@ -58,6 +60,12 @@ class AdType extends AbstractType
                     'placeholder' => 'Donnez l\'url de l\'image de votre annonce!'
                 ]
             ])
+            ->add('images',CollectionType::class, [
+                    'entry_type' => ImageType::class,
+                    'allow_add' => true,
+                    'allow_delete' => true
+                ]
+            )
 
         ;
     }

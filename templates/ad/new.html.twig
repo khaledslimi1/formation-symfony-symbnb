@@ -2,6 +2,8 @@
 
 {% block title %}Nouvelle annoces{% endblock %}
 
+{% form_theme form_ad "ad/_collection.html.twig" %}
+
 {% block body %}
     <div class="container">
         <h1>Créer une nouvelle annonce</h1>
@@ -15,4 +17,8 @@
         {{ form_end(form_ad) }}
 
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="/js/custom.js"></script>
 {% endblock %}
