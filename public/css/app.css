@@ -17,3 +17,8 @@ div.card img {
     max-width: 100%;
     display: block;
 }
+.avatar-mini {
+    max-height: 24px;
+    max-width: 24px;
+    border-radius: 50%;
+}

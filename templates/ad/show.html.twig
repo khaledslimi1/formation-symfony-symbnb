@@ -48,16 +48,19 @@
             <div class="col my-5">
                 <div class="row">
                     <div class="col-4">
-                        <img src="http://placehold.it/64x64" alt="Avatar">
+                        <a href="{{ path("user_show", {'slug': ad.author.slug}) }}">
+                            <img class="img-fluid" src="{{ ad.author.picture }}" alt="Avatar de {{ ad.author.firstName }} {{ ad.author.lastName }}">
+                        </a>
                     </div>
                     <div class="col">
-                        <h3>Hichem Ayeb</h3>
-                        <span class="badge badge-primary">3 annonces</span>
+                        <a href="{{ path("user_show", {'slug': ad.author.slug}) }}">
+                            <h3>{{ ad.author.firstName }} {{ ad.author.lastName }}</h3>
+                        </a>
+                        <span class="badge badge-primary">{{ ad.author.ads | length}} annonces</span>
+
                     </div>
                 </div>
-                <p>lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum </p>
-                <p>lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum </p>
-                <p>lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum lorem epsum </p>
+                <p>{{ ad.author.description | raw }}</p>
             </div>
         </div>
     </div>

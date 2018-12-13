@@ -50,6 +50,9 @@ class AdController extends AbstractController
                 $image->setAd($ad);
                 $manager->persist($image);
             }
+
+            $ad->setAuthor($this->getUser());
+
             $manager->persist($ad);
             $manager->flush();
 
@@ -107,7 +110,7 @@ class AdController extends AbstractController
 
             $manager->persist($ad);
             $manager->flush();
-            //die("test");
+
             $this->addFlash(
                 'success',
                 '<strong>L\'annonce a été bien modifier</strong>'

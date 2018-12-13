@@ -8,24 +8,24 @@
         <div class="row">
             {% for ad in ads %}
                 {% set adUrl = path("ads_show", {'slug': ad.slug}) %}
-            <div class="col-md-4">
-                <div class="card bg-light mb-3">
-                    <div class="card-header text-center">
-                        {{ ad.rooms }} chambres : <strong>{{ ad.price }}&euro; / nuit</strong><br>
-                        <small>Pas encore noté</small>
-                    </div>
-                    <a href="{{ adUrl }}">
-                        <img height="200" class="img-responsive" src="{{ ad.coverImage }}" alt="{{ ad.title }}"/>
-                    </a>
-                    <div class="card-body">
-                        <h4 class="card-title"><a href="{{ adUrl }}">{{ ad.title }}</a></h4>
-                        <p class="card-text">
-                            {{ ad.introduction }}
-                        </p>
-                        <a href="{{ adUrl }}" class="btn btn-secondary">En savoir + !</a>
+                <div class="col-md-4">
+                    <div class="card bg-light mb-3">
+                        <div class="card-header text-center">
+                            {{ ad.rooms }} chambres : <strong>{{ ad.price }}&euro; / nuit</strong><br>
+                            <small>Pas encore noté</small>
+                        </div>
+                        <a href="{{ adUrl }}">
+                            <img height="200" class="img-responsive" src="{{ ad.coverImage }}" alt="{{ ad.title }}"/>
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="{{ adUrl }}">{{ ad.title }}</a></h4>
+                            <p class="card-text">
+                                {{ ad.introduction }}
+                            </p>
+                            <a href="{{ adUrl }}" class="btn btn-secondary">En savoir + !</a>
+                        </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
     </div>
