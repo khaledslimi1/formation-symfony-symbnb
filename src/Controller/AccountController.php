@@ -10,6 +10,7 @@ use App\Form\RegistrationType;
 use Doctrine\Common\Persistence\ObjectManager;
 use http\Env\Response;
 use Psr\Container\ContainerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
@@ -82,6 +83,8 @@ class AccountController extends AbstractController
      *
      * @Route("/account/edit", name="account_edit")
      *
+     * @IsGranted("ROLE_USER")
+     *
      * @return Response
      */
     public function profile(Request $request, ObjectManager $manager)
@@ -108,6 +111,8 @@ class AccountController extends AbstractController
      * Permet de modifier le mot de passe
      *
      * @Route("/account/update-password",name="account_password")
+     *
+     * @IsGranted("ROLE_USER")
      *
      * @return Response
      */
@@ -153,6 +158,8 @@ class AccountController extends AbstractController
      * Permet d'afficher le profil de l'utilisateur connecté
      *
      * @Route("/account", name="account_index")
+     *
+     * @IsGranted("ROLE_USER")
      */
     public function myAccount()
     {
